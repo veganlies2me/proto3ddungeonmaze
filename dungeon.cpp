@@ -29,7 +29,7 @@ int main()
 {
     char input[1];
     cout<<"Welcome to the dungeon! Try to escape!"<<endl;
-    cout<<"Controals: W, A, S, D"<<endl;
+    cout<<"Controls: W, A, S, D"<<endl;
     cout<<"W = Go forward"<<endl;
     cout<<"S = Go backwards"<<endl;
     cout<<"A = Turn to the left"<<endl;
