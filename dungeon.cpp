@@ -22,8 +22,29 @@ int pozx=1,pozy=8, direction=180;
 //2 = exit
 
 //Graphics
-char hall[]="\t1#####1\n\t#1###1#\n\t##   ##\n\ti#   #i\n\t##   ##\n\t#1###1#\n\t1#####1\n";
-char wall[]="\t#######\n\t#######\n\t#######\n\t#i###i#\n\t#######\n\t#######\n\t#######\n";
+void drawhall()
+{
+    cout<<"\t\033[36m"<<"#"<<"\033[34m"<<"######"<<"\033[36m"<<"#"<<endl;
+    cout<<"\t\033[36m"<<"##"<<"\033[34m"<<"####"<<"\033[36m"<<"##"<<endl;
+    cout<<"\t\033[36m"<<"##"<<"    "<<"##"<<endl;
+    cout<<"\t"<<"\033[33m"<<"i"<<"\033[36m"<<"#"<<"    "<<"#"<<"\033[33m"<<"i"<<endl;
+    cout<<"\t\033[36m"<<"##"<<"    "<<"##"<<endl;
+    cout<<"\t\033[36m"<<"##"<<"\033[34m"<<"####"<<"\033[36m"<<"##"<<endl;
+    cout<<"\t\033[36m"<<"#"<<"\033[34m"<<"######"<<"\033[36m"<<"#"<<endl;
+    cout<<"\033[0m";
+}
+
+void drawwall()
+{
+    cout<<"\t\033[36m"<<"########"<<endl;
+    cout<<"\t\033[36m"<<"########"<<endl;
+    cout<<"\t\033[36m"<<"########"<<endl;
+    cout<<"\t"<<"\033[36m"<<"#"<<"\033[33m"<<"i"<<"\033[36m"<<"####"<<"\033[33m"<<"i"<<"\033[36m"<<"#"<<endl;
+    cout<<"\t\033[36m"<<"########"<<endl;
+    cout<<"\t\033[36m"<<"########"<<endl;
+    cout<<"\t\033[36m"<<"########"<<endl;
+    cout<<"\033[0m";
+}
 
 int main()
 {
@@ -38,17 +59,17 @@ int main()
     {
         //Determine the direction the player is facing
         if(direction==0)
-            if(map[pozy-1][pozx]==1)cout<<wall;
-            else cout<<hall;
+            if(map[pozy-1][pozx]==1)drawwall();
+            else drawhall();
         else if(direction==90)
-            if(map[pozy][pozx+1]==1)cout<<wall;
-            else cout<<hall;
+            if(map[pozy][pozx+1]==1)drawwall();
+            else drawhall();
         else if(direction==180)
-            if(map[pozy+1][pozx]==1)cout<<wall;
-            else cout<<hall;
+            if(map[pozy+1][pozx]==1)drawwall();
+            else drawhall();
         else if(direction==-90)
-            if(map[pozy][pozx-1]==1)cout<<wall;
-            else cout<<hall;
+            if(map[pozy][pozx-1]==1)drawwall();
+            else drawhall();
         cout<<"What are you going to do? ";cin>>input;
         //Reading input and changing the position
         if(strcmp("w",input)==0 || strcmp("W",input)==0)
